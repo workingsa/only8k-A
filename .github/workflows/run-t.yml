@@ -1,0 +1,37 @@
+
+name: Run
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    env:
+      PY_COLORS: "1"
+    name: Install Dependencies
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 20
+      fail-fast: false
+      matrix:
+        rangeIndex: [0 50,50 100,100 150,150 200,200 250,250 300,300 350,350 400,400 450,450 500,500 550,550 600,600 650,650 700,700 750,750 800,800 850,850 900,900 950,950 1000,1000 1050,1050 1100,1100 1150,1150 1200,1200 1250,1250 1300,1300 1350,1350 1400,1400 1450,1450 1500,1500 1550,1550 1600,1600 1650,1650 1700,1700 1750,1750 1800,1800 1850,1850 1900,1900 1950,1950 2000,2000 2050,2050 2100,2100 2150,2150 2200,2200 2250,2250 2300,2300 2350,2350 2400,2400 2450,2450 2500]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Dependencies
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip wheel setuptools
+          python -m pip install selenium
+          python -m pip install supabase
+          sudo apt install -y google-chrome-stable
+          sudo apt install -y xvfb
+          export DISPLAY=:0
+          /usr/bin/Xvfb :0 -screen 0 1024x768x24 &
+          sleep 5
+          xvfb-run python run-t.py ${{matrix.RangeIndex}}
+      - name: done
+        run: exit
