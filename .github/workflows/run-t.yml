@@ -3,7 +3,7 @@ name: Run
 
 on:
   push:
-    branches: ["main"]
+    branches: ["maine"]
 
 jobs:
   build:
