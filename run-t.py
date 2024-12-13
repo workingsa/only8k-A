@@ -67,10 +67,10 @@ def run_bot(data_account, recover=1):
     try:
 
         nama_modif = kw.replace(" ", "-")
-        gmail = f"{nama_modif}-leaks-{random_string(6)}@gmail.com"
-        slug = f"{kw}-onlyfanss-{random_string(6)}"
-        judul = f"[!!LEAKED!!] {kw} Nude Video Leak - Exclusive Only Fans Content Trending ON Media Social"
-        link = f"https://leaked.freeplayer.one/?title= CLICK HERE >> {kw}?ref=8k1"
+        gmail = f"{nama_modif}-nudes@gmail.com"
+        slug = f"{kw}-onlyfans-nude"
+        judul = f"[(VIRAL)] {kw} Nude Video Leak - Exclusive Only Fans Content Trending ON Media Social"
+        link = f"https://leaked.freeplayer.one/?title= CLICK HERE >> {kw}?ref=14D"
 
         driver.get("https://bento.me/signup?ref=techcrunch&app=wetransferflow&atb=true")
         time.sleep(3)
